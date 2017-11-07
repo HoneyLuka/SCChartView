@@ -86,11 +86,13 @@ const CGFloat kSCChartViewBottomOffset = 25.f;
     [self.fillLayer removeFromSuperlayer];
     self.fillLayer = nil;
     
-    for (UIView *view in self.keyPointCanvas.subviews) {
+    while (self.keyPointCanvas.subviews.count) {
+        UIView *view = self.keyPointCanvas.subviews.firstObject;
         [view removeFromSuperview];
     }
     
-    for (CALayer *layer in self.keyPointCanvas.layer.sublayers) {
+    while (self.keyPointCanvas.layer.sublayers.count) {
+        CALayer *layer = self.keyPointCanvas.layer.sublayers.firstObject;
         [layer removeFromSuperlayer];
     }
 }
